@@ -1,0 +1,22 @@
+{
+  "name": "chatgpt",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --experimental-modules server.js",
+    "serve": "npx http-server frontend_GPT -p 3000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "http-server": "^14.1.1",
+    "openai": "^3.2.1"
+  }
+}

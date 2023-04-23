@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Web Application</title>
+</head>
+<body>
+    <h1>ChatGPT Web Application</h1>
+    <input id="messageInput" type="text" placeholder="Type your message here...">
+    <button id="sendMessageButton">Send</button>
+    <ul id="messageList"></ul>
+
+    <script>
+        const messageInput = document.getElementById('messageInput');
+        const sendMessageButton = document.getElementById('sendMessageButton');
+        const messageList = document.getElementById('messageList');
+
+        sendMessageButton.addEventListener('click', async () => {
+            const userMessage = messageInput.value;
+            messageList.innerHTML += `<li><strong>User:</strong> ${userMessage}</li>`;
+            messageInput.value = '';
+
+            const response = await fetch('http://localhost:3001/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userMessage }),
+            });
+
+            const data = await response.json();
+            const chatGPTMessage = data.message;
+            messageList.innerHTML += `<li><strong>ChatGPT:</strong> ${chatGPTMessage}</li>`;
+        });
+    </script>
+</body>
+</html>
