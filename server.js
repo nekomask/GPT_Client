@@ -50,11 +50,12 @@ let conversationHistory = [
   },
 ];
 
-app.use(express.static(path.join(__dirname, 'frontend_GPT', 'build'))); 
+app.use(express.static(path.join(__dirname, 'frontend_GPT'))); 
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'frontend_GPT', 'build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, 'frontend_GPT', 'index.html'));
 });
+
 
 app.post('/chat', async (req, res) => {
   try {

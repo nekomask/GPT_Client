@@ -5,8 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node --experimental-modules server.js",
-    "serve": "npx http-server frontend_GPT -p 3000"
+    "start": "node --experimental-modules server.js"
   },
   "keywords": [],
   "author": "",
