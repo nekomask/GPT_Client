@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatGPT Web Application</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>ChatGPT Web Application</h1>
+    <h1>Woofus: Virtual Assistant</h1>
+    <img src="public/images/W00fus_desk.jpg">
     <input id="messageInput" type="text" placeholder="Type your message here...">
     <button id="sendMessageButton">Send</button>
-<div class="note"><p>Note: This is just a fun little app. Take everything this AI says with a grain of salt.</p></div>
-
 
     <ul id="messageList"></ul>
 
@@ -32,7 +32,7 @@
 
             const data = await response.json();
             const chatGPTMessage = data.message;
-            messageList.innerHTML += `<li><strong>ChatGPT:</strong> ${chatGPTMessage}</li>`;
+            messageList.innerHTML += `<li><strong>Woofus:</strong> ${chatGPTMessage}</li>`;
         });
     </script>
 </body>

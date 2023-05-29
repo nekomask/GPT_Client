@@ -61,8 +61,9 @@ app.post('/chat', async (req, res) => {
 
     res.json({ message: chatGPTMessage });
   } catch (error) {
-    res.status(500).json({ error: 'Error processing request' });
-  }
+    console.error('Error processing request:', error);
+    res.status(500).json({ error: 'Error processing request', details: error.message });
+  }  
 });
 
 
