@@ -24,7 +24,7 @@
             messageList.innerHTML += `<li><strong>User:</strong> ${userMessage}</li>`;
             messageInput.value = '';
 
-            const response = await fetch('http://localhost:3001/chat', {
+            const response = await fetch('https://woofus-gpt.onrender.com/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: userMessage }),
