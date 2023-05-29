@@ -3,6 +3,12 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import { config } from 'dotenv';
 import { Configuration, OpenAIApi } from 'openai';
+import path from 'path'; 
+import { fileURLToPath } from 'url'; 
+import { dirname } from 'path'; 
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 config();
 
@@ -44,6 +50,11 @@ let conversationHistory = [
   },
 ];
 
+app.use(express.static(path.join(__dirname, 'frontend_GPT', 'build'))); 
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'frontend_GPT', 'build', 'index.html'));
+});
 
 app.post('/chat', async (req, res) => {
   try {
