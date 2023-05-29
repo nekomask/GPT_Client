@@ -14,7 +14,9 @@
 
     <ul id="messageList"></ul>
 
-    <script>
+    <script type="module">
+        import apiURL from './apiConfig.js';
+
         const messageInput = document.getElementById('messageInput');
         const sendMessageButton = document.getElementById('sendMessageButton');
         const messageList = document.getElementById('messageList');
@@ -24,7 +26,7 @@
             messageList.innerHTML += `<li><strong>User:</strong> ${userMessage}</li>`;
             messageInput.value = '';
 
-            const response = await fetch('https://woofus-gpt.onrender.com/chat', {
+            const response = await fetch(`${apiURL}/chat`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: userMessage }),
